@@ -326,7 +326,7 @@ main(int argc, char** argv) {
   // LOG_NODELAY => Connect immediately
   setlogmask(LOG_UPTO(LOG_INFO));
   openlog("openr", LOG_CONS | LOG_PID | LOG_NDELAY | LOG_PERROR, LOG_LOCAL4);
-  syslog(LOG_NOTICE, "Starting OpenR daemon.");
+  syslog(LOG_NOTICE, "Starting OpenR....forked-8.5.18 daemon.");
 
   // Log build information
   BuildInfo::log(std::cout);
@@ -416,7 +416,7 @@ main(int argc, char** argv) {
 
     // Spawn a watchdog thread
     allThreads.emplace_back(std::thread([&watchdog]() noexcept {
-      LOG(INFO) << "Starting Watchdog thread ...";
+      LOG(INFO) << "Starting Watchdog thread---test1 ...";
       folly::setThreadName("Watchdog");
       watchdog->run();
       LOG(INFO) << "Watchdog thread got stopped.";
@@ -450,7 +450,7 @@ main(int argc, char** argv) {
       auto fibHandler = std::make_shared<NetlinkFibHandler>(&mainEventLoop);
       netlinkFibServer->setInterface(fibHandler);
 
-      LOG(INFO) << "Starting NetlinkFib server...";
+      LOG(INFO) << "Starting NetlinkFib server.  test2..";
       netlinkFibServer->serve();
       LOG(INFO) << "NetlinkFib server got stopped.";
     });
@@ -477,7 +477,7 @@ main(int argc, char** argv) {
               &mainEventLoop);
           netlinkSystemServer->setInterface(std::move(systemHandler));
 
-          LOG(INFO) << "Starting NetlinkSystem server...";
+          LOG(INFO) << "Starting NetlinkSystem server..  test3.";
           netlinkSystemServer->serve();
           LOG(INFO) << "NetlinkSystem server got stopped.";
         });

@@ -326,7 +326,7 @@ main(int argc, char** argv) {
   // LOG_NODELAY => Connect immediately
   setlogmask(LOG_UPTO(LOG_INFO));
   openlog("openr", LOG_CONS | LOG_PID | LOG_NDELAY | LOG_PERROR, LOG_LOCAL4);
-  syslog(LOG_NOTICE, "Starting OpenR....forked-8.5.18 daemon.");
+  syslog(LOG_NOTICE, "Starting OpenR daemon....forked-10.5.18 tejashri .");
 
   // Log build information
   BuildInfo::log(std::cout);
